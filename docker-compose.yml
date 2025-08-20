@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  polyamgraph:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - VITE_SUPABASE_URL=${VITE_SUPABASE_URL}
+      - VITE_SUPABASE_ANON_KEY=${VITE_SUPABASE_ANON_KEY}
+      - VITE_APP_NAME=${VITE_APP_NAME:-PolyamGraph}
+    env_file:
+      - .env
+    restart: unless-stopped
